@@ -1,4 +1,4 @@
-package com.lambda.demo;
+package com.lambda.demo.lambdaexpression;
 
 // A Java program to demonstrate simple lambda expressions
 

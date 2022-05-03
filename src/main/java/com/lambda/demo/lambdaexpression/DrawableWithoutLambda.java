@@ -1,4 +1,4 @@
-package com.lambda.demo;
+package com.lambda.demo.lambdaexpression;
 
 public class DrawableWithoutLambda {
     public static void main(String[] args) {

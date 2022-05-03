@@ -1,4 +1,4 @@
-package com.lambda.demo;
+package com.lambda.demo.lambdaexpression;
 
 @FunctionalInterface
 public interface Drawable {
