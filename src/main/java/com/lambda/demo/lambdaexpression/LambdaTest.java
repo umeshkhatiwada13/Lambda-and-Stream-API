@@ -1,9 +1,8 @@
 package com.lambda.demo.lambdaexpression;
 
-// A Java program to demonstrate simple lambda expressions
-
 import java.util.ArrayList;
 
+// A Java program to demonstrate simple lambda expressions
 class LambdaTest {
     public static void main(String[] args) {
         // Creating an ArrayList with elements

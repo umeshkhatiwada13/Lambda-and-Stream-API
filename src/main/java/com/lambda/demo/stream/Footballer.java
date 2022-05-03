@@ -15,4 +15,8 @@ public class Footballer {
     private String club;
     private int age;
     private float salary;
+
+    public static Footballer max(Footballer x, Footballer y) {
+        return x.getAge() > y.getAge() ? x : y;
+    }
 }

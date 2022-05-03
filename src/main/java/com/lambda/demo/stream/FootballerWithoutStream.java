@@ -21,5 +21,13 @@ public class FootballerWithoutStream {
             System.out.println(footballers.get(i).getName() + " : " + footballers.get(i).getAge());
         }
 
+        System.out.println("Getting the Oldest Footballer : ");
+        Footballer oldestFootballer = footballers.get(0);
+        for (Footballer footballer : footballers) {
+            oldestFootballer = Footballer.max(oldestFootballer, footballer);
+        }
+
+        System.out.println("Name : " + oldestFootballer.getName() + " and Age " + oldestFootballer.getAge());
+
     }
 }

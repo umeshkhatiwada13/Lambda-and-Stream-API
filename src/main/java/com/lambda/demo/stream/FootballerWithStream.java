@@ -1,6 +1,7 @@
 package com.lambda.demo.stream;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class FootballerWithStream {
     public static void main(String[] args) {
@@ -12,9 +13,14 @@ public class FootballerWithStream {
         footballers.add(new Footballer(5, "Leo Messi", "Argentina", "PSG", 35, 40f));
 
         //Adding 5 years to each footballer's age using stream
-        footballers.stream().forEach(footballer -> footballer.setAge(footballer.getAge() + 5));
+        Stream<Footballer> footballerStream = footballers.stream();
+        footballerStream.forEach(footballer -> footballer.setAge(footballer.getAge() + 5));
 
         System.out.println("\nPrinting all footballers with age after 5 years using stream");
         footballers.forEach(footballer -> System.out.println(footballer.getName() + " " + footballer.getAge()));
+
+        System.out.println("Getting the Oldest Footballer : ");
+        Footballer oldestFootballer = footballers.stream().reduce(Footballer::max).get();
+        System.out.println("Name " + oldestFootballer.getName() + " Age " + oldestFootballer.getAge());
     }
 }

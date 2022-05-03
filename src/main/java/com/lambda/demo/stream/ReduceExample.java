@@ -1,44 +1,38 @@
 package com.lambda.demo.stream;
 
+import org.springframework.util.StringUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.IntStream;
 
 public class ReduceExample {
     public static void main(String[] args) {
         // creating a list of Strings
-        List<String> words = Arrays.asList("GFG", "Geeks", "for",
-                "GeeksQuiz", "GeeksforGeeks");
+        List<String> words = Arrays.asList("a", "Stream", "lambda",
+                "data", "LongestString");
 
-        // The lambda expression passed to
-        // reduce() method takes two Strings
-        // and returns the longer String.
-        // The result of the reduce() method is
-        // an Optional because the list on which
-        // reduce() is called may be empty.
-        Optional<String> longestString = words.stream()
-                .reduce((word1, word2)
-                        -> word1.length() > word2.length()
-                        ? word1 : word2);
+        // The lambda expression passed to  reduce() method takes two Strings
+        // and returns the longer String. The result of the reduce() method is
+        // an Optional because the list on which reduce() is called may be empty.
+        Optional<String> longestString = words.stream().reduce((word1, word2)
+                -> word1.length() > word2.length() ? word1 : word2);
 
         // Displaying the longest String
         longestString.ifPresent(System.out::println);
 
         // String array
-        String[] array = {"Geeks", "for", "Geeks"};
+        String[] array = {"Hello", "Lambda", "Stream"};
 
-        // The result of the reduce() method is
-        // an Optional because the list on which
+        Arrays.stream(array).forEach(StringUtils::capitalize);
+
+        // The result of the reduce() method is an Optional because the list on which
         // reduce() is called may be empty.
-        Optional<String> String_combine = Arrays.stream(array)
-                .reduce((str1, str2)
-                        -> str1 + "-" + str2);
+        Optional<String> stringCombine = Arrays.stream(array)
+                .reduce((str1, str2) -> str1 + "-" + str2);
 
         // Displaying the combined String
-        if (String_combine.isPresent()) {
-            System.out.println(String_combine.get());
-        }
+        stringCombine.ifPresent(System.out::println);
 
         // Creating list of integers
         List<Integer> intArray = Arrays.asList(-2, 0, 4, 6, 8);
@@ -50,6 +44,4 @@ public class ReduceExample {
         // Displaying sum of all elements
         System.out.println("The sum of all elements is " + sum);
     }
-
-    List<Integer>  upto1000 = (List<Integer>) IntStream.range(1, 10000);
 }
